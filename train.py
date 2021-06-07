@@ -8,13 +8,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
 from azureml.core.run import Run
-from azureml.data.dataset_factory import TabularDatasetFactory
+from azureml.data.dataset_factory import TabularDatasetFactory as tdf
 
 # TODO: Create TabularDataset using TabularDatasetFactory
 # Data is located at:
-# "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
+url= "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
-ds = ### YOUR CODE HERE ###
+ds = tdf.from_delimited_files(path=url)
 
 x, y = clean_data(ds)
 
